@@ -1,8 +1,10 @@
 import React from 'react';
 import Sky from './Sky';
 import Ground from './Ground';
+import CannonBase from './CannonBase';
+import CannonPipe from './CannonPipe';
 
-const Canvas = () => {
+const Canvas = (props) => {
 
   const viewBox = [
     window.innerWidth / -2,
@@ -16,14 +18,12 @@ const Canvas = () => {
       id="aliens-go-home-canvas"
       // preserveAspectRatio="xMaxYMax none"
       viewBox={ viewBox }
+      onMouseMove={ props.trackMouse }
     >
       <Sky />
       <Ground />
-      <circle
-        cx={ 0 }
-        cy={ 0 }
-        r={ 50 }
-      />
+      <CannonPipe rotation={ props.angle } />
+      <CannonBase />
     </svg>
   );
 };
